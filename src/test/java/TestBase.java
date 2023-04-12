@@ -25,18 +25,18 @@ public class TestBase {
 
         Configuration.pageLoadStrategy = "eager";
 
-        System.out.println();
+        logger.info("");
         // Пример первой обработки параметра
 
-        System.out.println("Sistem property browserSize: " + System.getProperty("browserSize"));
+        logger.info("Sistem property browserSize: " + System.getProperty("browserSize"));
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-		System.out.println("Set Configuration.browserSize browserSize: " + Configuration.browserSize + "\n");
+		logger.info("Set Configuration.browserSize browserSize: " + Configuration.browserSize + "\n");
 
         // Пример второй обработки параметра
 
-        System.out.println("System property remoteURL: " + System.getProperty("remoteURL"));
+        logger.info("System property remoteURL: " + System.getProperty("remoteURL"));
         Configuration.remote = System.getProperty("remoteURL", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-        System.out.println("Set configuration.remote: " + Configuration.remote  + "\n");
+        logger.info("Set configuration.remote: " + Configuration.remote  + "\n");
 
         // Конфигурация без указания в джобе:
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -46,7 +46,7 @@ public class TestBase {
         ));
 
         Configuration.browserCapabilities = capabilities;
-        System.out.println("Set configuration.browserCapabilities: " + Configuration.browserCapabilities  + "\n");
+        logger.info("Set configuration.browserCapabilities: " + Configuration.browserCapabilities  + "\n");
 
     }
 
